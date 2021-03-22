@@ -18,7 +18,7 @@ io.on('connection', (socket) => {
     console.log('user have as new connection!!!')
     console.log(socket.id)
 
-    socket.on('join', ({name, rool}, callback) => {
+    socket.on('join', ({name, room}, callback) => {
         if (error) return callback(error)
         socket.emit('message', { user: 'admin', text: `${name}, welcome to room ${room}`})
         socket.broadcast.emit('message', {user: 'admin', text: `${name} has joind !!!`})
